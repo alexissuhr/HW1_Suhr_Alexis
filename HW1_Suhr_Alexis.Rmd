@@ -1,0 +1,74 @@
+---
+title: "STAA 566 - Homework 1 - Hello World on GitHub"
+author: "Alexis Suhr"
+date: "03 February 2022"
+output: html_document
+knit: (function(input_file, encoding) {
+  out_dir <- 'docs';
+  rmarkdown::render(input_file,
+ encoding=encoding,
+ output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
+---
+
+
+### Assignment Description  
+Upload a basic plot to GitHub. This can be any plot you want but must be done with ggplot2. Make sure that both the source code and final plot are available. 
+
+Follow the instructions in the GitHub lecture to fork your repo to the class organization account and to name it correctly.
+
+
+### Libraries, Packages, and Data  
+
+```{r}
+###### Install Packages ###### 
+
+# This command can check for all libraries/packages that have been loaded or already exist, if needed.
+# May use this in other projects, just going to comment out for now so I have it.
+#(library()$results[,1])
+
+# **ONLY RUN IF CODE BELOW IF NEEDED - TAKES A WHILE**
+# Can copy and paste below into the console if needed
+# to avoid including in the knitting
+
+
+# install.packages('ggplot2',
+# 'tidyverse',
+# 'readr',
+# 'gapminder')
+
+
+###### Read in libraries to be used ###### # read in libraries to be used 
+libs <- c('ggplot2',
+          'tidyverse',
+          'gapminder',
+          'readr')
+for(l in libs){
+  suppressPackageStartupMessages(library(l,
+                                         quietly = TRUE,
+                                         character.only = TRUE))
+}
+
+###### Load in 'gapminder' data as 'dat1' ###### 
+dat1 <- gapminder
+#summary(dat1)
+
+```
+
+### Plots (Exploratory Data Analysis)   
+```{r}
+######  Plot for HW1 ###### 
+
+plot_hw1 <- ggplot(data = gapminder,
+                   aes (x = continent,
+                        y = lifeExp,
+                        color = year))
+plot_hw1 <- plot_hw1 +
+  geom_point() +
+  labs(title = "Life Expectancy by Continent",
+  x = "Continent",
+          y = "Life Exp. (Years)")
+
+plot_hw1
+```
+
+
