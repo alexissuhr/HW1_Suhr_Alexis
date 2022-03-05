@@ -31,10 +31,10 @@ Follow the instructions in the GitHub lecture to fork your repo to the class org
 # to avoid including in the knitting
 
 
-# install.packages('ggplot2',
-# 'tidyverse',
-# 'readr',
-# 'gapminder')
+install.packages(c('ggplot2',
+'tidyverse',
+'readr',
+'gapminder'))
 
 
 ###### Read in libraries to be used ###### # read in libraries to be used 
